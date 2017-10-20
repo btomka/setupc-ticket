@@ -26,24 +26,26 @@
                     $query = $this->db->query('SELECT admin FROM user WHERE id = "'.$this->session->id.'" LIMIT 1');
                     $row = $query->row();
                     if($row->admin == 1){
-                        
+                        $query = $this->db->query('SELECT COUNT(waiting) AS wait FROM ticket WHERE status = 0 AND waiting = 0 LIMIT 1');
+						$row = $query->row();
                 ?>
                 
                 <li><a href="<?php echo base_url() ?>admin-interface">Profile</a></li>
-                <li><a href="<?php echo base_url() ?>admin-list">List</a></li>
+                <li><a href="<?php echo base_url() ?>admin-list">List <?php echo "(".$row->wait.")"; ?></a></li>
                 <li><a href="<?php echo base_url() ?>admin-history">History</a></li>
                 <li><a href="?logout">Logout</a></li>
                 
                 <?php
                         
                     }elseif($row->admin == 0){
-                        
+                        $query = $this->db->query('SELECT COUNT(waiting) AS wait FROM ticket WHERE user = '.$this->session->id.' AND status = 0 AND waiting = 0 LIMIT 1');
+						$row = $query->row();
                 ?>
                 
                 <li><a href="<?php echo base_url() ?>user-interface">Create</a></li>
                 <li><a href="<?php echo base_url() ?>user-history">History</a></li>
                 <li><a href="?logout">Logout</a></li>
-                
+                <li><a>Waiting <?php echo "(".$row->wait.")"; ?></a></li>
                 <?php
                         
                     }

@@ -29,13 +29,17 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php
-									$query = $this->db->query('SELECT id, num, createdate, lastlog, id FROM ticket WHERE status = 0 AND user = '.$this->session->id.'');
+								<?php								
+									$query = $this->db->query('SELECT id, num, createdate, lastlog, waiting FROM ticket WHERE status = 0 AND user = '.$this->session->id.'');
 									foreach ($query->result() as $row)
 									{
 								?>
 								<tr>
-									<th scope="row"><?php echo $row->num; ?></th>
+									<th scope="row">
+									<?php
+										if($row->waiting == 1){ echo '<span style="color: orange">'.$row->num.'</span>'; }elseif($row->waiting == 0){ echo '<span>'.$row->num.'</span>'; }
+									?>
+									</th>
 									<td class="hidden-xs"><?php echo $row->createdate; ?></td>
 									<td class="hidden-xs"><?php echo $row->lastlog; ?></td>
 									<td>

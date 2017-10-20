@@ -69,3 +69,11 @@ body {
 .caption {
     display: none;
 }
+
+.possible-answers {
+  margin-top: 20px;
+}
+
+.separate > hr {
+  margin-top: 0px;
+}
