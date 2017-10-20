@@ -4,7 +4,7 @@ Beautifully Simple Customer Support Ticket System
 Maked into CodeIgniter framework. It basic structure of support ticket system. Entire system are grow from desire to make user support better and more organised. 
 
 
-# Installation 
+# Installation on hosting
 - Download entire project.
 - Make changes with your favorite editor into file app/config/config.php on line 26 and write your domain name.
 - Import database ticket_db.sql into your mysql control panel.
