@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-		<title>setupc ticket sysetm</title>
+		<title>Setupc Ticket Sysetm</title>
 		
 		<?php $this->load->view('part/_header'); ?>
 		

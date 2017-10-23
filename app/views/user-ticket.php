@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-		<title>Setup C</title>
+		<title>Setupc Ticket Sysetm</title>
 		
 		<?php $this->load->view('part/_header'); ?>
 		

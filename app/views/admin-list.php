@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-		<title>Setup C</title>
+		<title>Setupc Ticket Sysetm</title>
 		
 		<?php $this->load->view('part/_header'); ?>
 		
@@ -22,6 +22,7 @@
 							<thead>
 								<tr>
 									<th>#</th>
+									<th class="hidden-xs">segmet</th>
 									<th class="hidden-xs">create</th>
 									<th class="hidden-xs">last check</th>
 									<th></th>
@@ -30,12 +31,13 @@
 							</thead>
 							<tbody>
 								<?php
-									$query = $this->db->query('SELECT id, num, createdate, lastlog, id, waiting FROM ticket WHERE status = 0');
+									$query = $this->db->query('SELECT id, num, segment, createdate, lastlog, waiting FROM ticket WHERE status = 0');
 									foreach ($query->result() as $row)
 									{
 								?>
 								<tr>
 									<th scope="row"><?php echo $row->num; ?></th>
+									<td class="hidden-xs"><?php echo $row->segment; ?></td>
 									<td class="hidden-xs"><?php echo $row->createdate; ?></td>
 									<td class="hidden-xs"><?php echo $row->lastlog; ?></td>
 									<td>

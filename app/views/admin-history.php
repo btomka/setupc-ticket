@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-		<title>Setup C</title>
+		<title>Setupc Ticket Sysetm</title>
 		
 		<?php $this->load->view('part/_header'); ?>
 		
@@ -22,6 +22,7 @@
 							<thead>
 								<tr>
 									<th>#</th>
+									<th class="hidden-xs">segmet</th>
 									<th>User</th>
 									<th class="hidden-xs">create</th>
 									<th class="hidden-xs">closed</th>
@@ -30,12 +31,13 @@
 							</thead>
 							<tbody>
 								<?php
-									$query = $this->db->query('SELECT ticket.id AS id, ticket.num AS num, ticket.createdate AS createdate, ticket.lastlog AS lastlog, user.username AS username FROM ticket INNER JOIN user ON ticket.user = user.id WHERE ticket.status = 3');
+									$query = $this->db->query('SELECT ticket.id AS id, ticket.segment AS segment, ticket.num AS num, ticket.createdate AS createdate, ticket.lastlog AS lastlog, user.username AS username FROM ticket INNER JOIN user ON ticket.user = user.id WHERE ticket.status = 3');
 									foreach ($query->result() as $row)
 									{
 								?>
 								<tr>
 									<th scope="row"><?php echo $row->num; ?></th>
+									<td class="hidden-xs"><?php echo $row->segment; ?></td>
 									<th><?php echo $row->username; ?></th>
 									<td class="hidden-xs"><?php echo $row->createdate; ?></td>
 									<td class="hidden-xs"><?php echo $row->lastlog; ?></td>
